@@ -6,20 +6,21 @@ $(document).ready(function(){
     inputSentence = inputSentence.toLowerCase().replace(/[^A-z0-9]/g, "");
     var sentence = inputSentence.split("");
     var area = inputSentence.length;
-    var side = Math.ceil(Math.sqrt(area)); //array length
+    var sideRow = Math.ceil(Math.sqrt(area)); //array length
+    var sideCol = Math.floor(Math.sqrt(area));
     var cryptoMatrix = [];
     var outputSentence = [];
     var i = 0;
 
-    for(var r = 0; r < side; r++){
-          for(var c = 0; c < side; c++){
+    for(var r = 0; r < sideRow; r++){
+          for(var c = 0; c < sideCol; c++){
             cryptoMatrix[[r,c]] = inputSentence[i];
             i++;
           }
         }
 
-    for(var r = 0; r < side; r++){
-          for(var c = 0; c < side; c++){
+    for(var r = 0; r < sideRow; r++){
+          for(var c = 0; c < sideCol; c++){
             outputSentence.push(cryptoMatrix[[c,r]]);
           }
         };
