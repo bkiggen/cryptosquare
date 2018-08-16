@@ -9,7 +9,6 @@ $(document).ready(function(){
     var side = Math.ceil(Math.sqrt(area)); //array length
     var cryptoMatrix = [];
     var outputSentence = [];
-
     var i = 0;
 
     for(var r = 0; r < side; r++){
@@ -22,18 +21,19 @@ $(document).ready(function(){
     for(var r = 0; r < side; r++){
           for(var c = 0; c < side; c++){
             outputSentence.push(cryptoMatrix[[c,r]]);
-            i++;
           }
         };
 
-      outputSentence.toString();
-      // outputSentence.replace(/(.{5})/g," ");
 
-      console.log(outputSentence);
+      var result = outputSentence.join("");
+      var answer = "";
 
+      for(var p = 0; p < result.length; p+=5){
+        var sub = result.substring(p, p+5);
+        answer = answer.concat(sub + " ");
+      };
 
-
-
-
+      $("#message").html(answer);
+      console.log(answer);
   });
 });
